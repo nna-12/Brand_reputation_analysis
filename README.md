@@ -15,7 +15,7 @@ A comprehensive sentiment analysis of Starbucks customer reviews to assess brand
 
 
 ## Dataset
-The dataset, named `reviews_data.csv & downloaded from Kaggle, consists of  850 records and the following 6 columns
+The dataset, named `reviews_data.csv` & downloaded from Kaggle, consists of  850 records and the following 6 columns
 - `name`: Name of the reviewer
 - `location`: Location of the reviewer
 - `date`: Date of the review
