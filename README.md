@@ -1,6 +1,7 @@
 # Starbucks Brand Reputation Analysis
 A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the brand reputation of Starbucks by performing sentiment analysis on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception. This study aims to develop an automated sentiment analysis system to assess emotions in customer reviews belonging to the Starbucks Reviews Dataset and categorize them as Positive, Neutral, or Negative.
 
+
 ## Table of Contents
 - [Dataset](#dataset)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
@@ -25,7 +26,6 @@ The dataset, named `reviews_data.csv` & downloaded from Kaggle, consists of  850
 
 
 ## Exploratory Data Analysis
-
 1. Initial analysis is performed to understand the structure and contents of the dataset. Key steps include:
 2. Displaying dataset information: data types, column names, shape, and null value counts using df.info() and df.describe().
 3. Rating Distribution: A distribution plot and pie chart are used to visualize the spread of customer ratings.
@@ -34,7 +34,6 @@ The dataset, named `reviews_data.csv` & downloaded from Kaggle, consists of  850
 
 
 ## Data Preprocessing
-
 Preprocessing ensures the text data is clean and standardized for analysis. The steps include:
 
 1. Handling Missing Values - Rows with missing text reviews are dropped. Missing values in other columns are filled with the column median.
@@ -45,13 +44,13 @@ This preprocessing stage prepares the textual data for effective feature extract
 
 
 ## Feature Engineering
-
 To convert text into a format suitable for machine learning models, the following steps are applied:
 
 1. Data Splitting: The dataset is divided into training and test sets (80% training, 20% testing).
 2. **TF-IDF** Vectorization: Converts textual data into numerical feature vectors. Words that are too common (max_df=0.85) or too rare (min_df=5) are filtered out to reduce noise.
 
 TF-IDF helps capture the importance of terms in a document relative to the entire corpus.
+
 
 ## Data Resampling
 
@@ -61,6 +60,7 @@ To address class imbalance and improve model fairness, a two-step resampling str
 2. RandomUnderSampler: Reduces the size of the majority class to balance the dataset.
 
 The combination results in a resampled training dataset (`X_train_bal`, `y_train_bal`) that enables more equitable model training across sentiment categories.
+
 
 ## Model Training - Traditional Models
 
