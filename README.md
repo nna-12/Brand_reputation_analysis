@@ -104,7 +104,7 @@ To improve model performance, both dimensionality reduction and hyperparameter t
 These techniques enhance model generalization and computational efficiency.
 
 
-## Ensemble Teachniques
+## Ensemble Techniques
 
 To further enhance model robustness and accuracy, ensemble methods are employed. These techniques combine the predictions of multiple models to reduce variance and avoid overfitting.
 Ensemble Models:
