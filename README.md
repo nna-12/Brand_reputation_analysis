@@ -47,7 +47,7 @@ This preprocessing stage prepares the textual data for effective feature extract
 To convert text into a format suitable for machine learning models, the following steps are applied:
 
 1. Data Splitting: The dataset is divided into training and test sets (80% training, 20% testing).
-2. **TF-IDF** Vectorization: Converts textual data into numerical feature vectors. Words that are too common (max_df=0.85) or too rare (min_df=5) are filtered out to reduce noise.
+2. TF-IDF Vectorization: Converts textual data into numerical feature vectors. Words that are too common (max_df=0.85) or too rare (min_df=5) are filtered out to reduce noise.
 
 TF-IDF helps capture the importance of terms in a document relative to the entire corpus.
 
