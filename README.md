@@ -62,49 +62,61 @@ To address class imbalance and improve model fairness, a two-step resampling str
 
 The combination results in a resampled training dataset (`X_train_bal`, `y_train_bal`) that enables more equitable model training across sentiment categories.
 
-## Model Training
+## Model Training - Traditional Models
 
-1. Convert text data into numerical vectors using various techniques:
-   - Bag of Words (Count Vectorizer)
-   - TF-IDF Vectorizer
-   - Continuous Bag of Words (CBOW)
-   - Skip-gram
-   - Pretrained Word Embeddings "word2vec-google-news-300"
-   
-2. Train a classification model using logistic regression on the vectorized data.
-3. Evaluate the model's performance, achieving an accuracy score of 0.58 for multiclass classification.
-4. Save the model using the `pickle` library.
-5. Convert the problem into binary classification by creating a new column, `B_Rating`, where 1 and 2 are mapped to "Bad" and 3, 4, 5 are mapped to "Good."
+A set of traditional machine learning classifiers is defined and trained on the balanced dataset obtained through SMOTE and under-sampling techniques. Each model is evaluated using a consistent evaluation function to compare performance metrics across models. Models Trained:
 
-## Balancing the Binary Dataset
+- Logistic Regression
+- Naïve Bayes
+- Support Vector Machines (SVM)
+- k-Nearest Neighbors (k-NN)
+- Decision Tree
 
-To balance the binary dataset, down-sample "Bad" and "Good" reviews to match each other. The resulting balanced dataset is saved as `balanced_df1`.
+The models were tested on unseen data, and their performance metrics were compared to identify the best-performing classifiers in this category.
 
-## Model Training (Binary Classification)
 
-1. Reapply the text vectorization techniques.
-2. Split the data into training and testing sets.
-3. Normalize the feature data using Min-Max scaling.
-4. Train a logistic regression model for binary classification.
-5. Achieve an accuracy score of 0.84 for the binary classification problem.
-6. Generate a confusion matrix, heatmap, and classification report.
+## Prediction & Evaluation
 
-## Flask Web Application
+Each trained model's performance is assessed using various classification metrics, and the most promising models from both traditional and ensemble categories are selected for in-depth evaluation. Metrics Used:
 
-The Flask web application (`app.py`) is created to deploy the trained predictive model. It allows users to input their review and receive predictions what rating they likely to give. The web application consists of two main HTML templates:
-- `index.html`: The homepage where users input review.
-- `prediction.html`: The page displaying the prediction.
+- Accuracy – Correct predictions over total predictions.
+- Precision – True positives over predicted positives.
+- Recall – True positives over actual positives.
+- F1-Score – Harmonic mean of precision and recall.
+- Matthews Correlation Coefficient (MCC) – A balanced measure that takes into account true and false positives and negatives.
+- Cohen’s Kappa Score – Measures agreement between actual and predicted labels, correcting for chance.
 
-## Running the Flask Web App
+Confusion matrices are plotted to visualize the distribution of predictions across sentiment classes (Positive, Negative, Neutral), helping to identify any model biases or misclassifications.
 
-To run the Flask web app, follow these steps:
-1. Install the required libraries listed in `requirements.txt` using `pip install -r requirements.txt`.
-2. Run the Flask app by executing `python app.py`.
-3. Open the web app in your browser by navigating to `http://localhost:5000`.
 
-For any questions or suggestions, please feel free to contact me on LinkedIn.
+## Optimisation
 
-## Webpage Glimpse:
+To improve model performance, both dimensionality reduction and hyperparameter tuning techniques are applied:
 
-![Index](index.png)
-![Prediction](prediction.png)
+### Dimensionality Reduction:
+1. Principal Component Analysis (PCA): Reduces the number of features while retaining variance.
+2. Linear Discriminant Analysis (LDA): Projects features in a way that maximizes class separability.
+
+### Hyperparameter Tuning:
+1. Grid Search: Exhaustive search over manually specified parameter values.
+2. Random Search: Random combinations for faster yet effective tuning.
+
+These techniques enhance model generalization and computational efficiency.
+
+
+## Ensemble Teachniques
+
+To further enhance model robustness and accuracy, ensemble methods are employed. These techniques combine the predictions of multiple models to reduce variance and avoid overfitting.
+**Ensemble Models**:
+1. Random Forest
+2. AdaBoost Classifier
+3. Bagging Classifier
+
+These models generally outperform individual classifiers, especially in terms of accuracy and F1-score, making them well-suited for production-level sentiment analysis systems.
+
+## Deployment
+
+The final, best-performing model is deployed as a RESTful API using FastAPI, providing real-time sentiment predictions for new reviews.
+1. Cloud Hosting: Deployed to Google Cloud Platform (GCP) using services such as Cloud Run.
+2. Version Control: Full source code and deployment instructions are available on GitHub.
+
