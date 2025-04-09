@@ -1,20 +1,21 @@
 # Brand_reputation_analysis
-A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the **brand reputation of Starbucks** by performing **sentiment analysis** on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception.
+A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the **brand reputation of Starbucks** by performing **sentiment analysis** on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception. This study aims to develop an automated sentiment analysis system to assess emotions in customer reviews belonging to the Starbucks Reviews Dataset and categorize them as Positive, Neutral, or Negative.
 
 ## Table of Contents
 - [Dataset](#dataset)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Data Preprocessing](#data-preprocessing)
-- [Feature Engineering](#text-preprocessing)
-- [Data Resampling](#balancing-the-dataset)
+- [Feature Engineering](#feature-engineering)
+- [Data Resampling](#data-resampling)
 - [Model Training - Traditional Models](#model-training)
 - [Prediction & Evaluation](#prediction-and-evaluation)
 - [Optimisation](#optmisation)
+- [Ensemble Teachniques](#ensemble-techniques)
 - [Deployment](#deployment)
 
 
 ## Dataset
-
-The dataset, named `reviews_data.csv`, includes the following columns:
+The dataset, named `reviews_data.csv & downloaded from Kaggle, consists of  850 records and the following 6 columns
 - `name`: Name of the reviewer
 - `location`: Location of the reviewer
 - `date`: Date of the review
@@ -22,27 +23,44 @@ The dataset, named `reviews_data.csv`, includes the following columns:
 - `review`: The text of the review
 - `image_links`: Links to images associated with the review
 
+
+## Exploratory Data Analysis
+
+1. Initial analysis is performed to understand the structure and contents of the dataset. Key steps include:
+2. Displaying dataset information: data types, column names, shape, and null value counts using df.info() and df.describe().
+3. Rating Distribution: A distribution plot and pie chart are used to visualize the spread of customer ratings.
+4. Review Trends: Bar charts show the volume of reviews by City, Day of the week, Year
+5. Sentiment Over Time: A line graph illustrates how sentiment (positive, neutral, negative) varies across years, helping to track reputation changes over time.
+
+
 ## Data Preprocessing
 
-1. Import necessary libraries including numpy, pandas, matplotlib, seaborn, nltk.
-2. Load the dataset from the CSV file.
-3. Check the shape of the dataset.
-4. Drop all columns except `rating` and `review`.
-5. Remove duplicate rows.
-6. Drop rows with missing values.
-7. Convert the `rating` column to integer data type.
+Preprocessing ensures the text data is clean and standardized for analysis. The steps include:
 
-## Text Preprocessing
+1. Handling Missing Values - Rows with missing text reviews are dropped. Missing values in other columns are filled with the column median.
+2. Text Cleaning - Removal of special characters, extra whitespaces, and punctuations.
+3. Conversion of all text to lowercase for consistency.
+   
+This preprocessing stage prepares the textual data for effective feature extraction and modeling.
 
-1. Clean the text in the `review` column by selecting only alphabetic characters and converting them to lowercase.
-2. Tokenize the reviews by splitting them into words.
-3. Remove stop words using NLTK.
-4. Perform lemmatization on the remaining words.
-5. Join the words back into a single string and save it in the `review` column.
 
-## Balancing the Dataset
+## Feature Engineering
 
-To balance the dataset, down-sample the reviews for ratings 1, 2, 3, and 4 to match the number of reviews for rating 5. The resulting balanced dataset is saved as `balanced_df`.
+To convert text into a format suitable for machine learning models, the following steps are applied:
+
+1. Data Splitting: The dataset is divided into training and test sets (80% training, 20% testing).
+2. **TF-IDF** Vectorization: Converts textual data into numerical feature vectors. Words that are too common (max_df=0.85) or too rare (min_df=5) are filtered out to reduce noise.
+
+TF-IDF helps capture the importance of terms in a document relative to the entire corpus.
+
+## Data Resampling
+
+To address class imbalance and improve model fairness, a two-step resampling strategy is used:
+
+1. SMOTE (Synthetic Minority Over-sampling Technique): Creates synthetic examples of minority classes to enhance representation.
+2. RandomUnderSampler: Reduces the size of the majority class to balance the dataset.
+
+The combination results in a resampled training dataset (`X_train_bal`, `y_train_bal`) that enables more equitable model training across sentiment categories.
 
 ## Model Training
 
