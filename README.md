@@ -1,4 +1,4 @@
-# Brand_reputation_analysis
+# Starbucks Brand Reputation Analysis
 A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the **brand reputation of Starbucks** by performing **sentiment analysis** on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception. This study aims to develop an automated sentiment analysis system to assess emotions in customer reviews belonging to the Starbucks Reviews Dataset and categorize them as Positive, Neutral, or Negative.
 
 ## Table of Contents
@@ -7,10 +7,10 @@ A comprehensive sentiment analysis of Starbucks customer reviews to assess brand
 - [Data Preprocessing](#data-preprocessing)
 - [Feature Engineering](#feature-engineering)
 - [Data Resampling](#data-resampling)
-- [Model Training - Traditional Models](#model-training)
-- [Prediction & Evaluation](#prediction-and-evaluation)
-- [Optimisation](#optmisation)
-- [Ensemble Teachniques](#ensemble-techniques)
+- [Model Training - Traditional Models](#model-training---traditional-models)
+- [Prediction & Evaluation](#prediction--evaluation)
+- [Optimisation](#optimisation)
+- [Ensemble Techniques](#ensemble-techniques)
 - [Deployment](#deployment)
 
 
