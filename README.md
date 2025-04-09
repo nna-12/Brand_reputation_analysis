@@ -93,11 +93,11 @@ Confusion matrices are plotted to visualize the distribution of predictions acro
 
 To improve model performance, both dimensionality reduction and hyperparameter tuning techniques are applied:
 
-### Dimensionality Reduction:
+**Dimensionality Reduction:**
 1. Principal Component Analysis (PCA): Reduces the number of features while retaining variance.
 2. Linear Discriminant Analysis (LDA): Projects features in a way that maximizes class separability.
 
-### Hyperparameter Tuning:
+**Hyperparameter Tuning:**
 1. Grid Search: Exhaustive search over manually specified parameter values.
 2. Random Search: Random combinations for faster yet effective tuning.
 
