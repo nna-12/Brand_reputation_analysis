@@ -1,5 +1,5 @@
 # Starbucks Brand Reputation Analysis
-A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the **brand reputation of Starbucks** by performing **sentiment analysis** on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception. This study aims to develop an automated sentiment analysis system to assess emotions in customer reviews belonging to the Starbucks Reviews Dataset and categorize them as Positive, Neutral, or Negative.
+A comprehensive sentiment analysis of Starbucks customer reviews to assess brand reputation using machine learning techniques to assess and monitor brand reputation over time. This project aims to evaluate the brand reputation of Starbucks by performing sentiment analysis on customer reviews collected from various platforms. By leveraging Natural Language Processing (NLP) and Machine Learning (ML), we analyze the emotional tone of customer feedback and generate actionable insights about customer satisfaction and brand perception. This study aims to develop an automated sentiment analysis system to assess emotions in customer reviews belonging to the Starbucks Reviews Dataset and categorize them as Positive, Neutral, or Negative.
 
 ## Table of Contents
 - [Dataset](#dataset)
@@ -64,8 +64,8 @@ The combination results in a resampled training dataset (`X_train_bal`, `y_train
 
 ## Model Training - Traditional Models
 
-A set of traditional machine learning classifiers is defined and trained on the balanced dataset obtained through SMOTE and under-sampling techniques. Each model is evaluated using a consistent evaluation function to compare performance metrics across models. Models Trained:
-
+A set of traditional machine learning classifiers is defined and trained on the balanced dataset obtained through SMOTE and under-sampling techniques. Each model is evaluated using a consistent evaluation function to compare performance metrics across models. 
+Models Trained:
 - Logistic Regression
 - Naïve Bayes
 - Support Vector Machines (SVM)
@@ -107,12 +107,13 @@ These techniques enhance model generalization and computational efficiency.
 ## Ensemble Teachniques
 
 To further enhance model robustness and accuracy, ensemble methods are employed. These techniques combine the predictions of multiple models to reduce variance and avoid overfitting.
-**Ensemble Models**:
+Ensemble Models:
 1. Random Forest
 2. AdaBoost Classifier
 3. Bagging Classifier
 
 These models generally outperform individual classifiers, especially in terms of accuracy and F1-score, making them well-suited for production-level sentiment analysis systems.
+
 
 ## Deployment
 
